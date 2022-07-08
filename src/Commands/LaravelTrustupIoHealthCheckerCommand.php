@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Deegitalbe\LaravelTrustupIoHealthChecker\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelTrustupIoHealthCheckerCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-trustup-io-health-checker';
 
     public $description = 'My command';
 
