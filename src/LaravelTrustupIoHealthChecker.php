@@ -6,6 +6,5 @@ class LaravelTrustupIoHealthChecker
 {
     public function __construct()
     {
-
     }
 }
