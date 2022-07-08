@@ -2,9 +2,9 @@
 
 namespace Deegitalbe\LaravelTrustupIoHealthChecker\Tests;
 
+use Deegitalbe\LaravelTrustupIoHealthChecker\LaravelTrustupIoHealthCheckerServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Deegitalbe\LaravelTrustupIoHealthChecker\LaravelTrustupIoHealthCheckerServiceProvider;
 
 class TestCase extends Orchestra
 {

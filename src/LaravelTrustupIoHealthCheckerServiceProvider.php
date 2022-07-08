@@ -2,9 +2,9 @@
 
 namespace Deegitalbe\LaravelTrustupIoHealthChecker;
 
+use Deegitalbe\LaravelTrustupIoHealthChecker\Commands\LaravelTrustupIoHealthCheckerCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Deegitalbe\LaravelTrustupIoHealthChecker\Commands\LaravelTrustupIoHealthCheckerCommand;
 
 class LaravelTrustupIoHealthCheckerServiceProvider extends PackageServiceProvider
 {
