@@ -1,6 +1,3 @@
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
-
 # Health checker package for trustup apps
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/deegitalbe/laravel-trustup-io-health-checker.svg?style=flat-square)](https://packagist.org/packages/deegitalbe/laravel-trustup-io-health-checker)
@@ -8,16 +5,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/deegitalbe/laravel-trustup-io-health-checker/Check%20&%20fix%20styling?label=code%20style)](https://github.com/deegitalbe/laravel-trustup-io-health-checker/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/deegitalbe/laravel-trustup-io-health-checker.svg?style=flat-square)](https://packagist.org/packages/deegitalbe/laravel-trustup-io-health-checker)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-trustup-io-health-checker.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-trustup-io-health-checker)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
-
+Allow to quickly monitor a website.
 ## Installation
 
 You can install the package via composer:
@@ -26,56 +14,38 @@ You can install the package via composer:
 composer require deegitalbe/laravel-trustup-io-health-checker
 ```
 
-You can publish and run the migrations with:
+You have to push the configuration file :
 
 ```bash
-php artisan vendor:publish --tag="laravel-trustup-io-health-checker-migrations"
-php artisan migrate
+php artisan vendor:publish --tag="health-config"
 ```
 
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="laravel-trustup-io-health-checker-config"
-```
-
-This is the contents of the published config file:
-
+Inside the generated `health.php` config file, inside the `'result_stores'`, just enable the `InMemoryHealthResultStore::class` and disable other storages :
 ```php
-return [
-];
-```
+'result_stores' => [
+    /*
+    Spatie\Health\ResultStores\EloquentHealthResultStore::class => [
+    'model' => Spatie\Health\Models\HealthCheckResultHistoryItem::class,
+    'keep_history_for_days' => 5,
+    ],
 
-Optionally, you can publish the views using
+    Spatie\Health\ResultStores\CacheHealthResultStore::class => [
+        'store' => 'file',
+    ],
 
-```bash
-php artisan vendor:publish --tag="laravel-trustup-io-health-checker-views"
+    Spatie\Health\ResultStores\JsonFileHealthResultStore::class => [
+        'disk' => 's3',
+        'path' => 'health.json',
+    ],
+    */
+    
+    Spatie\Health\ResultStores\InMemoryHealthResultStore::class,
+],
 ```
 
 ## Usage
 
-```php
-$laravelTrustupIoHealthChecker = new Deegitalbe\LaravelTrustupIoHealthChecker();
-echo $laravelTrustupIoHealthChecker->echoPhrase('Hello, Deegitalbe!');
-```
-
-## Testing
-
-```bash
-composer test
-```
-
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](https://github.com/romainvausetrustup/.github/blob/main/CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+You can fetch the in real-time result on the route `/health-json` 
 
 ## Credits
 
