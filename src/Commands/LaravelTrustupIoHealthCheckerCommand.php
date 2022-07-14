@@ -3,8 +3,6 @@
 namespace Deegitalbe\LaravelTrustupIoHealthChecker\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\App;
-use function Pest\Laravel\artisan;
 
 class LaravelTrustupIoHealthCheckerCommand extends Command
 {
