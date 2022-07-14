@@ -9,4 +9,5 @@ use Spatie\Health\Http\Controllers\HealthCheckResultsController;
 
 Route::middleware([TrustupAuthKeyMiddleware::class])->group(function () {
     Route::get('trustup-io/health/json', HealthCheckJsonResultsController::class);
+    Route::get('trustup-io/health/ping', fn () => 'pong');
 });
